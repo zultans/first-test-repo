@@ -1,6 +1,6 @@
-* {
+/* * {
     border: none !important;
-}
+} */
 
 /* Style rules */
 body h1 {
@@ -89,7 +89,6 @@ html, .h-con {
         flex-direction: column;
         height: 10rem;
         font-size: 20px;
-        min-width: 480px;
     }
 
     .h-con li {

@@ -1,0 +1,132 @@
+* {
+    border: none !important;
+}
+
+/* Style rules */
+body h1 {
+    font-weight: 100;
+    font-size: 36px;
+    font-family: 'Manjari';
+
+}
+
+body h2 {
+    font-weight: 300;
+    font-size: 20px;
+    font-family: 'Manrope';
+}
+
+body p {
+    font-weight: 300;
+    font-size: 16px;
+    font-family: 'Manrope';
+}
+
+body {
+    font-family: 'Manjari', sans-serif;
+    margin: 0 10%;
+    background-color: #fbfefb;
+}
+
+html, .h-con {
+    font-size: 1.375rem;
+}
+
+@media only screen and (max-width: 1000px) {
+    html, .h-con {
+        font-size: 1.1875rem;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* Header */
+
+.h-con {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 4.44rem;
+    padding: 1% 10%;
+    font-family: 'Manjari', sans-serif;
+}
+
+.h-con .h-logo {
+    --padding: 15px;
+    border: 1px solid red;
+    padding-top: var(--padding);
+    flex-grow: 1;
+}
+
+.h-logo img {
+    max-width: 14rem;
+    margin-right: 30px;
+}
+
+.h-con ul {
+    display: inline-flex;
+}
+
+.h-con li {
+    display: inline;
+    border: 1px solid blue;
+    padding-right: 2rem;
+}
+
+.h-con li a {
+    text-decoration: none;
+    color: #5a493f;
+}
+
+@media only screen and (max-width: 700px) {
+    .h-con {
+        box-sizing: border-box;
+        flex-direction: column;
+        height: 10rem;
+        font-size: 20px;
+        min-width: 480px;
+    }
+
+    .h-con li {
+        display: inline;
+        border: 1px solid blue;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .h-con .h-logo {
+        flex-grow: 0;
+    }
+}
+
+/* Banner */
+
+.banner {
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50rem;
+    background: url("/Berni-website/resources/images/front/bf-banner.jpeg") center center no-repeat;
+    background-size: contain;
+    color: #ffb78c;
+    margin: 0 10%;
+
+}
+
+@media only screen and (max-width: 700px) {
+    .banner {
+        height: 40rem;
+        justify-content: center;
+    }
+
+    .banner h1 {
+        font-size: 8rem;
+    }
+}

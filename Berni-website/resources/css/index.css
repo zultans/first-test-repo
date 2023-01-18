@@ -1,6 +1,6 @@
-/* * {
+* {
     border: none !important;
-} */
+}
 
 /* Style rules */
 body h1 {
@@ -88,14 +88,32 @@ html, .h-con {
         box-sizing: border-box;
         flex-direction: column;
         height: 10rem;
-        font-size: 20px;
+        font-size: 19px;
     }
 
     .h-con li {
         display: inline;
-        border: 1px solid blue;
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: .8rem;
+        padding-left: .8rem;
+    }
+
+    .h-con .h-logo {
+        flex-grow: 0;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .h-con {
+        box-sizing: border-box;
+        flex-direction: column;
+        height: 10rem;
+        font-size: 16px;
+    }
+
+    .h-con li {
+        display: inline;
+        padding-right: .6rem;
+        padding-left: .6rem;
     }
 
     .h-con .h-logo {
@@ -106,26 +124,13 @@ html, .h-con {
 /* Banner */
 
 .banner {
-    border: 1px solid green;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 50rem;
-    background: url("/Berni-website/resources/images/front/bf-banner.jpeg") center center no-repeat;
-    background-size: contain;
-    color: #ffb78c;
     margin: 0 10%;
-
 }
 
-@media only screen and (max-width: 700px) {
-    .banner {
-        height: 40rem;
-        justify-content: center;
-    }
+.banner img {
+    border: 1px solid green;
+    display: block;
+    width: 100%;
 
-    .banner h1 {
-        font-size: 8rem;
-    }
+
 }

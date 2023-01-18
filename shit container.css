@@ -1,0 +1,23 @@
+.banner {
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    background: url("/Berni-website/resources/images/front/bf-banner.jpeg") center center no-repeat;
+    background-size: contain;
+    color: #ffb78c;
+    margin: 0 10%;
+
+}
+
+@media only screen and (max-width: 700px) {
+    .banner {
+        justify-content: center;
+    }
+
+    .banner h1 {
+        font-size: 1rem;
+    }
+}

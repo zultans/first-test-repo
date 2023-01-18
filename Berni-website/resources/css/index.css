@@ -60,6 +60,7 @@ html, .h-con {
     --padding: 15px;
     border: 1px solid red;
     padding-top: var(--padding);
+    padding-left: 2.5%;
     flex-grow: 1;
 }
 
@@ -131,6 +132,13 @@ html, .h-con {
     border: 1px solid green;
     display: block;
     width: 100%;
-
-
 }
+
+@media only screen and (max-width: 1000px) {
+    .banner {
+        margin: 0 5%;
+    }
+}
+
+/* Footer */
+

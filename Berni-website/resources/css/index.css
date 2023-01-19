@@ -2,6 +2,26 @@
     border: none !important;
 }
 
+/* For footer */
+
+#page-container {
+    margin: 0 10%;          /* Base Margin*/
+    position: relative;
+    min-height: 100vh;
+}
+
+  #content-wrap {
+    padding-bottom: 5rem;    /* Footer height from content */
+  }
+  
+  #footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 4rem;            /* Footer height */
+  }
+
+
 /* Style rules */
 body h1 {
     font-weight: 100;
@@ -23,22 +43,51 @@ body p {
 }
 
 body {
+    
     font-family: 'Manjari', sans-serif;
     margin: 0 10%;
     background-color: #fbfefb;
+    width: 100%;
+    display: table-cell;
 }
 
-html, .h-con {
-    font-size: 1.375rem;
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 24px;
+    width: 100%;
+    height: 100%;
+    display: table;
 }
 
 @media only screen and (max-width: 1000px) {
-    html, .h-con {
-        font-size: 1.1875rem;
+    html {
+        font-size: 22px;
     }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 890px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 790px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
     html {
         font-size: 14px;
     }
@@ -46,17 +95,23 @@ html, .h-con {
 
 /* Header */
 
-.h-con {
+.h-container {
+    --cormorant-font-family: 'Cormorant', serif;
+    --cormorant-font-weight: 400;
+    --manjari-font-family: 'Manjari', sans-serif;
+    --manjari-font-weight: 100;
     border: 1px solid black;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 4.44rem;
-    padding: 1% 10%;
-    font-family: 'Manjari', sans-serif;
+    height: 3.44rem;
+    margin-bottom: .2rem;
+    padding-top: 10px;
+    font-family: var(--cormorant-font-family);
+    font-weight: var(--cormorant-font-weight);
 }
 
-.h-con .h-logo {
+.h-container .h-logo {
     --padding: 15px;
     border: 1px solid red;
     padding-top: var(--padding);
@@ -65,59 +120,66 @@ html, .h-con {
 }
 
 .h-logo img {
-    max-width: 14rem;
+    display: inline;
+    max-width: 10rem;
     margin-right: 30px;
 }
 
-.h-con ul {
+.h-container ul {
     display: inline-flex;
 }
 
-.h-con li {
+.h-container li {
     display: inline;
     border: 1px solid blue;
     padding-right: 2rem;
 }
 
-.h-con li a {
+.h-container li a {
     text-decoration: none;
     color: #5a493f;
 }
 
-@media only screen and (max-width: 700px) {
-    .h-con {
+@media only screen and (max-width: 600px) {
+    .h-container {
         box-sizing: border-box;
         flex-direction: column;
-        height: 10rem;
+        padding: 5% 10%;
+        row-gap: 10px;
+        height: 7rem;
         font-size: 19px;
+        margin-bottom: 1rem;
     }
 
-    .h-con li {
+    .h-container li {
         display: inline;
         padding-right: .8rem;
         padding-left: .8rem;
     }
 
-    .h-con .h-logo {
+    .h-container .h-logo {
         flex-grow: 0;
     }
 }
 
 @media only screen and (max-width: 375px) {
-    .h-con {
+    .h-container {
         box-sizing: border-box;
         flex-direction: column;
-        height: 10rem;
-        font-size: 16px;
+        row-gap: 10px;
+        height: 7rem;
+        font-size: 17px;
+        margin-bottom: 1rem;
+
     }
 
-    .h-con li {
+    .h-container li {
         display: inline;
         padding-right: .6rem;
         padding-left: .6rem;
     }
 
-    .h-con .h-logo {
+    .h-container .h-logo {
         flex-grow: 0;
     }
 }
@@ -125,19 +187,75 @@ html, .h-con {
 /* Banner */
 
 .banner {
-    margin: 0 10%;
+    border: 2px solid green;
+    text-align: center;
 }
 
-.banner img {
-    border: 1px solid green;
+.banner .image-container {
+    overflow: hidden;
+    margin-bottom: 1.11rem;
+}
+
+.banner .image-container img {
+    border-radius: 5px;
     display: block;
     width: 100%;
 }
 
+.banner .caption-con {
+    border: 2px solid mediumvioletred;
+    margin: 0 4%;
+}
+
+.banner .caption {
+    border: 1px solid;
+    font-family: 'Manrope';
+    font-style: italic;
+    font-size: 14px;
+}
+
 @media only screen and (max-width: 1000px) {
     .banner {
-        margin: 0 5%;
+        margin: 0 5% var(--margin-bottom) 5%;
     }
 }
 
 /* Footer */
+
+footer {
+    border: 2px solid rgb(0, 255, 42);
+    font-family: 'Manrope';
+    font-size: 14px;
+    font-style: italic;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.icon-container {
+    display: inline;
+    border: 1px solid;
+    flex-basis: 1;
+    
+}
+
+#copyright {
+    padding-left: 1rem;
+    flex-grow: 1;
+    border: 1px solid black;
+    color: #5a493f;
+}
+
+#email {
+    border: 1px solid red;
+}
+
+#email, #instagram {
+    display: inline;
+    padding-right: 10px;
+}
+
+#email a, #instagram a {
+    text-decoration: none;
+    color: #5a493f;
+}

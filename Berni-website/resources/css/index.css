@@ -212,6 +212,7 @@ html {
     font-family: 'Manrope';
     font-style: italic;
     font-size: 14px;
+    color:#5a493f;
 }
 
 @media only screen and (max-width: 1000px) {

@@ -1,5 +1,5 @@
 body {
-    font-family: 'Manjari', sans-serif;
+    font-family: 'Cormorant', serif;
     margin: 0 10%;
     background-color: #FFFFFF;
 }
@@ -15,6 +15,7 @@ body {
 }
 
 .color-container {
+    font-family: 'Manrope', sans-serif;
     display: flex;
     flex-wrap: wrap;
     column-gap: 10px;
@@ -137,6 +138,8 @@ body {
     opacity: 1;
 }
 
+/* Font Panel */
+
 .font-container {
     display: flex;
     flex-wrap: wrap;
@@ -144,7 +147,7 @@ body {
     column-gap: 10px;
 }
 p.manrope {
-    margin-top: 18px;
+    margin-top: 16px;
 }
 
 .font-panel {
@@ -153,9 +156,12 @@ p.manrope {
 
 }
 
+#panel-cormorant {
+    flex: 1 1 auto;
+}
+
 #panel-manjari {
     flex: 1 1 auto;
-    margin: 0px;
 }
 
 #panel-manrope {
@@ -179,18 +185,31 @@ p.manrope {
     font-weight: 700;
 }
 
+.cormorant {
+    font-family: 'Cormorant', serif;
+}
+
 .manjari {
     font-family: 'Manjari', sans-serif;
 }
 
 .manrope {
     font-family: 'Manrope', sans-serif;
-    font-weight: bold;
 }
+
+/* Text Panel */
 
 .text-container {
     position: relative;
+    top: 20px;
     left: 3%;
+    padding-bottom: 20px;
+}
+
+.text-panel nav {
+    font-weight: 100;
+    font-size: 36px;
+    font-family: 'Cormorant', sans-serif;
 }
 
 .text-panel h1 {

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Load Pages into Body</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#" onclick="document.getElementById('content').src='/test.html'">Page 1</a>
+      <a href="#" onclick="document.getElementById('content').src='/index.html'">Page 2</a>
+      <a href="#" onclick="document.getElementById('content').src='/page3.html'">Page 3</a>
+    </nav>
+  </header>
+  <iframe id="content" src="/test.html"></iframe>
+</body>
+</html>

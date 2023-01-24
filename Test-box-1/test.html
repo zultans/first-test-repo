@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function loadContent(event) {
+        event.preventDefault();
+        let link = event.target;
+        let url = link.href;
+
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            let parser = new DOMParser();
+            let htmlDoc = parser.parseFromString(data, "text/html");
+            let content = htmlDoc.getElementById("content");
+            document.getElementById("content").innerHTML = content.innerHTML;
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="./page1.php" onclick="loadContent(event)">Page 1</a>
+        <a href="page2.html" onclick="loadContent(event)">Page 2</a>
+        <a href="page3.html" onclick="loadContent(event)">Page 3</a>
+      </nav>
+    </header>
+    <div id="content">
+      <!-- Default content -->
+      <h1>Index.html</h1>
+    </div>
+    <footer>
+      <!-- Footer content -->
+    </footer>
+  </body>
+</html>

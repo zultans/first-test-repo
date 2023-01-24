@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#home" id="home-link" onclick="handleHomeLinkClick(event)">Home</a>
+        <a href="#about" id="about-link" onclick="handleAboutLinkClick(event)">About</a>
+        <a href="#services" id="services-link" onclick="handleServicesLinkClick(event)">Services</a>
+        <a href="#contact" id="contact-link" onclick="handleContactLinkClick(event)">Contact</a>
+      </nav>
+    </header>
+    <div id="root"></div>
+    <footer>
+        <p>Copyright ©2022 Example Inc.</p>
+    </footer>
+    <script>
+        const Content = ({ page }) => {
+            switch (page) {
+              case "home":
+                return <div>Home Page</div>;
+              case "about":
+                return <div>About Page</div>;
+              case "services":
+                return <div>Services Page</div>;
+              case "contact":
+                return <div>Contact Page</div>;
+              default:
+                return <div>404 Page Not Found</div>;
+            }
+        };
+        
+        let page = 'home';
+        const setPage = (newPage) => {
+            page = newPage;
+            ReactDOM.render(<Content page={page} />, document.getElementById("root"));
+        };
+        
+        const handleHomeLinkClick = (event) => {
+            event.preventDefault();
+            setPage('home');
+        };
+        const handleAboutLinkClick = (event) => {
+            event.preventDefault();
+            setPage('about');
+        };
+        const handleServicesLinkClick = (event) => {
+            event.preventDefault();
+            setPage('services');
+        };
+        const handleContactLinkClick = (event) => {
+            event.preventDefault();
+            setPage('contact');
+        };
+        setPage(page);
+
+        import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+function App() {
+  return (
+    <Router>
+      <Header />
+      <Route path="/" exact component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/services" component={Services} />
+      <Route path="/contact" component={Contact} />
+    </Router>
+  );
+}
+    </script>
+  </body>
+</html>

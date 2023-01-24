@@ -1,0 +1,68 @@
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+
+const ROWS = 10;
+const COLS = 10;
+const MINES = 15;
+
+const generateBoard = () => {
+  const board = Array(ROWS).fill(null).map(() => Array(COLS).fill(null));
+
+  let minesPlaced = 0;
+  while (minesPlaced < MINES) {
+    const row = Math.floor(Math.random() * ROWS);
+    const col = Math.floor(Math.random() * COLS);
+
+    if (!board[row][col]) {
+      board[row][col] = -1;
+      minesPlaced++;
+    }
+  }
+
+  for (let row = 0; row < ROWS; row++) {
+    for (let col = 0; col < COLS; col++) {
+      if (board[row][col] === -1) continue;
+
+      let mines = 0;
+      for (let i = -1; i <= 1; i++) {
+        for (let j = -1; j <= 1; j++) {
+          if (i === 0 && j === 0) continue;
+          if (row + i < 0 || row + i >= ROWS) continue;
+          if (col + j < 0 || col + j >= COLS) continue;
+          if (board[row + i][col + j] === -1) mines++;
+        }
+      }
+
+      board[row][col] = mines;
+    }
+  }
+
+  return board;
+};
+
+const App = () => {
+  const [board, setBoard] = useState(generateBoard());
+  const [gameOver, setGameOver] = useState(false);
+
+  const handlePress = (row, col) => {
+    if (gameOver) return;
+    if (board[row][col] === -1) {
+      setBoard(Array(ROWS).fill(null).map(() => Array(COLS).fill(-1)));
+      setGameOver(true);
+      return;
+    }
+    setBoard(board.map((row, i) => row.map((cell, j) => (i === row && j === col ? -2 : cell))));
+  };
+
+  return (
+    <View style={styles.container}>
+      {board.map((row, rowIndex) => (
+        <View key={rowIndex} style={styles.row}>
+          {row.map((cell, cellIndex) => (
+            <TouchableOpacity key={cellIndex} onPress={() => handlePress(rowIndex, cellIndex)}>
+              <View style={styles.cell}>
+                {cell === -1 ? (
+                  <Text style={styles.mine}>X</Text>
+                ) : cell === -2 ? (
+                  <Text>{cell}</Text>
+                ) : (

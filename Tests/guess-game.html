@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guessing Game</title>
+</head>
+<body>
+  <h1>Guess a number between 1 and 100</h1>
+  <input type="text" id="guess">
+  <button id="guess-button" onclick="guessNumber()">Guess</button>
+  <button id="reset-button" onclick="resetGame()" style="display:none">Reset</button>
+  <p id="result"></p>
+  <script>
+    // Generate a random number between 1 and 100
+    let target = Math.floor(Math.random() * 100) + 1;
+    let numGuesses = 0;
+    let guessButton = document.querySelector("#guess-button");
+    let resetButton = document.querySelector("#reset-button");
+    let result = document.querySelector("#result");
+
+    function guessNumber() {
+      let guess = document.querySelector("#guess").value;
+      if (guess == target) {
+        result.innerHTML = "Congratulations! You guessed the number in " + numGuesses + " tries.";
+        guessButton.setAttribute("disabled", true);
+        resetButton.style.display = "block";
+      } else if (guess > target) {
+        result.innerHTML = "Too high! Guess again.";
+        numGuesses++;
+      } else {
+        result.innerHTML = "Too low! Guess again.";
+        numGuesses++;
+      }
+    }
+
+    function resetGame() {
+      target = Math.floor(Math.random() * 100) + 1;
+      numGuesses = 0;
+      guessButton.removeAttribute("disabled");
+      resetButton.style.display = "none";
+      result.innerHTML = "";
+      document.querySelector("#guess").value = "";
+    }
+  </script>
+</body>
+</html>
